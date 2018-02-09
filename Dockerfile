@@ -1,8 +1,10 @@
-FROM alpine:3.3
+FROM alpine:3.4
 MAINTAINER Tom Van Herreweghe
 
-ENV EXIFTOOL_VERSION=10.20
+ENV EXIFTOOL_VERSION=10.78
 
+RUN apk update
+RUN apk add ca-certificates wget
 RUN apk add --no-cache perl make
 RUN cd /tmp \
 	&& wget http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-${EXIFTOOL_VERSION}.tar.gz \
